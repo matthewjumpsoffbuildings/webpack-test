@@ -1,0 +1,270 @@
+.mfp-container {
+    padding: 0;
+}
+
+.mfp-content {
+    position: absolute;
+    left: 0;
+}
+
+.mfp-preloader {
+    display: none;
+    color: $green;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 0;
+    transform: translate(0%,-50%);
+}
+
+.mfp-wrap {
+    transition: opacity 0.3s linear
+}
+
+.mfp-wrap.mfp-ready { opacity: 1; }
+.mfp-wrap.mfp-removing { opacity: 0; }
+
+.mfp-bg {
+    background: none;
+}
+
+body.pace-done .single-wrap {
+    filter: none;
+    opacity: 1;
+    transition: opacity 0.8s linear 0.5s, filter 0.7s linear 1s;
+}
+
+body.pace-done.mfp-open .single-wrap {
+    // filter: blur(10px);
+    opacity: 0;
+}
+
+body.pace-done.nav-open .single-wrap,
+body.pace-done.nav-open .letter,
+body.pace-done.nav-open .scroll-control,
+body.pace-done.nav-open .bg {
+    filter: blur(10px);
+    opacity: 0.5;
+    transition: opacity 0.5s linear 0.5s, filter 0.7s linear 0s;
+}
+
+body.pace-done.mfp-open.nav-open .mfp-wrap {
+    filter: blur(10px);
+}
+
+body.pace-done.nav-open nav {
+    opacity: 1;
+    z-index: 99999999999999;
+    transition: opacity 0.4s linear 0.4s; // showing nav
+
+    ul {
+        // opacity: 1;
+        // transform: translate(0, -50%) scale(1);
+    }
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+body.show-menu nav ul.nav {
+    opacity: 1;
+}
+
+nav {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s linear 0.2s, z-index 0.4s linear 0.2s;
+
+    .nav-closer {
+        position: absolute;
+        top: 1.6rem;
+        left: 1.6rem;
+        cursor: pointer;
+        z-index: 999;
+
+        img {
+            width: 4.5rem;
+            padding: 1rem;
+        }
+    }
+
+    // display: none;
+
+    ul.nav {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        margin: 0;
+        padding: 0;
+        z-index: 99;
+        text-align: center;
+        list-style-type: none;
+        // font-weight: bold;
+        transition: z-index 0.4s ease 0s, opacity 0.4s ease 0.2s; // showing nav
+        font-size: 4rem;
+
+      
+
+        li {
+            margin-bottom: 1rem;
+            position: relative;
+
+            a {
+                position: relative;
+                display: inline-block;
+            }
+
+            a:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                // transition: opacity 0.2s ease;
+                height: 0.8rem;
+                background: $green;
+            }
+
+            a:hover:after {
+                opacity: 1
+            }
+        }
+    }
+
+}
+
+header, div.wrap {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.5s;
+}
+
+body.pace-done {
+    header, div.wrap {
+        opacity: 1;
+    }
+}
+
+.menu-menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    // background: red;
+}
+
+.social {
+    ul {
+        text-align: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        position: relative;
+        z-index: 99;
+        margin-top: 5.5rem;
+
+      
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 0.5rem;
+    }
+
+    li a {
+        display: block;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+}
+
+.who_we_are,
+.get_in_touch {
+    padding: 10vh 10vw;
+    // font-weight: bold;
+    font-family: 'gordita-medium';
+    position: absolute;
+    overflow: scroll;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+    transition: z-index 0.4s ease 0.8s, opacity 0.4s ease 0.4s; // hiding page
+    font-size: 2.5rem;
+
+    
+}
+
+body.nav-open.who-we-are {
+    nav ul.nav {
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.4s ease 0s, z-index 0.4s ease 0.4s; // hiding nav
+    }
+    nav .who_we_are {
+        opacity: 1;
+        z-index: 99;
+        transition: opacity 0.4s ease 0.4s, z-index 0.4s ease 0s; // showing page
+    }
+}
+
+body.nav-open.get-in-touch {
+    nav ul.nav {
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.4s ease 0s, z-index 0.4s ease 0.4s; // hiding nav
+    }
+    nav .get_in_touch {
+        opacity: 1;
+        z-index: 99;
+        transition: opacity 0.4s ease 0.4s, z-index 0.4s ease 0s; // showing page
+    }
+}
+
+
+.get_in_touch {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    label {
+        display: none;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        margin-bottom: 2rem;
+        background: none;
+        padding: 0.5em;
+        padding-top: .7em;
+        text-align: center;
+        border: 0.5rem solid $green;
+
+     
+
+        
+    }
+
+    textarea {
+        max-height: 60vh;
+    }
+
+    .gform_footer input {
+        background: $green;
+        color: $white;
+        width: auto;
+        float: right;
+    }
+}

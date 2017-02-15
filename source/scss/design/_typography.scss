@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'gordita-bold';
+    src: url('../fonts/gorditabold-webfont.eot');
+    src: url('../fonts/gorditabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gorditabold-webfont.woff2') format('woff2'),
+         url('../fonts/gorditabold-webfont.woff') format('woff'),
+         url('../fonts/gorditabold-webfont.ttf') format('truetype'),
+         url('../fonts/gorditabold-webfont.svg#gorditabold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gordita-medium';
+    src: url('../fonts/gorditamedium-webfont.eot');
+    src: url('../fonts/gorditamedium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gorditamedium-webfont.woff2') format('woff2'),
+         url('../fonts/gorditamedium-webfont.woff') format('woff'),
+         url('../fonts/gorditamedium-webfont.ttf') format('truetype'),
+         url('../fonts/gorditamedium-webfont.svg#gorditamedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}

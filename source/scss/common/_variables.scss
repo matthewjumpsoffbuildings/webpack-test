@@ -1,0 +1,26 @@
+$susy: (
+    gutters: .15,
+    gutter-position: inside,
+    use-custom: (
+        box-sizing: false
+    )
+);
+
+$no-gutters: (
+    gutters: 0,
+    gutter-position: outside,
+    use-custom: (
+        box-sizing: false
+    )
+);
+
+// eg usage:  @include span(1 of 2 $no-gutters);
+
+// Colors
+$black: #000000;
+$white: #FFFFFF;
+$green: #186937;
+$pink: #F7E8ED;
+
+$mobile: 600px;
+$desktop: 1200px;
