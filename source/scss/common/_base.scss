@@ -2,7 +2,6 @@ html,
 body {
     height: 100%;
     min-height: 100%;
-    -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     color: $green;
@@ -26,6 +25,7 @@ body {
     left: 0;
     background: $pink;
     transition: filter 0.3s linear 1s, opacity 0.3s linear 1s;
+    max-height: 200vh;
 }
 
 header {

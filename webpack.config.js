@@ -16,34 +16,53 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /.js$/,
+                exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
                         presets: ['es2015']
                     }
-                },
-                resource: {
-                    exclude: /(node_modules|bower_components)/,
-                    test: /.js$/
                 }
             },
             {
                 test: /\.scss$/,
-                loader: extractSass.extract({
-                    loader: [{
-                        loader: "css-loader"
-                    },{
-                        loader: "sass-loader"
-                    }]
+                use: extractSass.extract({
+                    use: [
+                        {
+                            loader: "css-loader",
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
                 })
             },
             { 
                 test: /\.(gif|jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/, 
-                loader: 'file-loader?name=[path][name].[ext]' 
+                use: 'file-loader?name=[path][name].[ext]' 
             }
         ]
     },
     plugins: [
         extractSass
-    ]
+    ],
+    devtool: "source-map"
 }
