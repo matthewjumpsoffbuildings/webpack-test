@@ -1,3 +1,5 @@
+$foo: #2770b9;
+
 html,
 body {
     height: 100%;
@@ -6,7 +8,8 @@ body {
     text-rendering: optimizeLegibility;
     color: $green;
     font-family: 'gordita-medium';
-    font-size: 50%;
+    font-size: 50%; 
+    background-color: $foo; 
 }
 
 .clearfix:after {
@@ -65,3 +68,8 @@ img {
     display: block;
     max-width: 100%;
 }
+
+
+
+// WEBPACK FOOTER //
+// webpack:///source/scss/source/scss/common/_base.scss
