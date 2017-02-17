@@ -9,6 +9,10 @@
     opacity: 1;
 }
 
+html, body {
+    background: white;
+}
+
 .nav {
     position: fixed;
     height: 3.8rem;
@@ -255,9 +259,9 @@ body.mfp-open {
 
     ul.slides li {
 
-        opacity: 0;
+        //opacity: 0;
         // transition: 0.5s linear 0s;
-
+        
        
 
         &.landscape {
