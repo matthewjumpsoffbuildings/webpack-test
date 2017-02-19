@@ -5,6 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSass = new ExtractTextPlugin({
     filename: "bundle.css"
 })
+const extractPug = new ExtractTextPlugin({
+    filename: "./templates/[name].html"
+})
 
 
 
@@ -13,12 +16,12 @@ module.exports = {
     /*/ the js file that starts everything off...
     /// if something isnt require()'d by this, or something this loads, it wont be webpacked
     /*/
-    entry: './source/app.js',
+    entry: ['./source/entry.js', './source/templates/test1.pug', './source/templates/test2.pug'],
 
     // output paths - where webpack saves everything
     output: {
         path: path.join(__dirname, 'dist'), 
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
 
     watch: true,
@@ -30,7 +33,8 @@ module.exports = {
 
     // array of webpack plugins 
     plugins: [
-        extractSass
+        extractSass,
+        extractPug
     ],
 
     /*/
@@ -41,7 +45,7 @@ module.exports = {
 
             // js loading with babel es2015 support
             {
-                test: /.js$/,
+                test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
@@ -84,9 +88,20 @@ module.exports = {
                 })
             },
 
+            // pug loading
+            {
+                test: /\.pug$/,
+                use: extractPug.extract({
+                    use: [
+                        "html-loader",
+                        "pug-html-loader?pretty&exports=false"
+                    ]
+                })
+            },
+
             // everything else, just copy it 1:1 into the output directory using the same folder structure
             { 
-                test: /\.(gif|jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/, 
+                test: /\.(gif|jpe?g|png|ico|woff|woff2|eot|ttf|svg)$/, 
                 use: 'file-loader?name=[path][name].[ext]' 
             },
 
